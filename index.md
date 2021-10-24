@@ -25,7 +25,7 @@ mee aan de slag. Eerst een voorbeeld van wat je ermee kunt doen:
 {{< voorbeeld kop="de code bij dit voorbeeld" >}}
 <p>Favoriet van Jaap! 😉</p>
 <p>Kopie van <a href="https://openprocessing.org/sketch/422446">Sketch 422446</a>.
-{{< highlight javascript >}}
+{{< highlight javascript "linenos=table,linenostart=1" >}}
 var circle = 200;
 var rot;
 var col;
@@ -83,5 +83,23 @@ Er zijn twee functies die worden aangeroepen door de p5.js bibliotheek:
 
 In de `setup()` functie zet je éénmalige instellingen, zoals bijvoorbeeld een vaste achtegrondkleur. In de `draw()`
 functie dingen die veranderen, zoals bijvoorbeeld een verschuivende kubus.
+
+Het volgende voorbeeld tekent een draaiend vierkant:
+
+{{< highlight javascript "linenos=table,hl_lines=2 6-9,linenostart=1" >}}
+function setup() {
+    createCanvas(300, 300);
+}
+
+function draw() {
+    background(255);
+    translate(width / 2, height / 2);
+    rotate(frameCount/50);
+    rect(-26, -26, 52, 52);
+}
+{{< /highlight >}}
+
+
+
 
 {{< licentie rel="http://creativecommons.org/licenses/by-nc-sa/4.0/">}}
