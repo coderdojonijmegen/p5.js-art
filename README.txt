@@ -15,3 +15,4 @@ Om het geschikt te maken voor gebruik voor dojos zijn er de volgende aanpassinge
         de p5.js bibliotheek gedownload naar p5.js_0.4.23/p5.js
  - het kleine preview-schermpje vergroot naar 800 x 800 px
         zoek op PREVIEW_WIDTH en HEIGHT in p5-widgets.js en main.bundle.js en vervang 150 en 300 door 800 en 800
+ zie: https://github.com/coderdojonijmegen/p5.js-art/commit/5690941a0d479ab5d2018a781c40537ea3816521
