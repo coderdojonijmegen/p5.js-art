@@ -134,7 +134,144 @@ In dit hoofdstuk gaan we kunst maken met je muis. Beweeg je muis maar eens over 
 <div class="p5js_voorbeeld" id="voorbeeld2"></div>
 Stap voor stap gaan we dit nabouwen.
 
+### Tekenvlak
+
+We beginnen met het vlak waarin we de cirkels gaan tekenen:
+
+{{< highlight javascript "linenos=table,hl_lines=2-3,linenostart=1" >}}
+function setup() {
+    createCanvas(710, 400);
+    background(102);
+}
+
+function draw() {
+}
+{{< /highlight >}}
+
+**Opdracht 6**: neem bovenstaande code over in de editor en voer het programma uit. Je hebt nu een grijs vlak.
+
 ### Een cirkel
+
+De volgende stap is een cirkel:
+
+{{< highlight javascript "linenos=table,hl_lines=7,linenostart=1" >}}
+function setup() {
+    createCanvas(710, 400);
+    background(102);
+}
+
+function draw() {
+    ellipse(300, 200, 60, 60);
+}
+{{< /highlight >}}
+
+**Opdracht 7**: neem regel 7 over in je code en voer het programma uit. Er verschijnt nu een witte cirkel in het grijze 
+    vlak. Wat gebeurt er als je de getallen 300 en 200 veranderd? En als je de getallen 60 veranderd?
+
+### De cirkel bewegen met de muis
+
+Om de cirkel te bewegen met de muis, moet je er voor zorgen dat de cirkel de positie van de muis volgt:
+
+{{< highlight javascript "linenos=table,hl_lines=7,linenostart=1" >}}
+function setup() {
+    createCanvas(710, 400);
+    background(102);
+}
+
+function draw() {
+    ellipse(mouseX, mouseY, 60, 60);
+}
+{{< /highlight >}}
+
+**Opdracht 8**: vervang de getallen 300 en 200 in regel 7 met `mouseX` en `mouseY`. Deze twee variabelen bevatten de 
+    horizontale positie (`mouseX`) en vertikale positie (`mouseY`) van de muis. Voor je programma uit. Beweegt de
+    cirkel mee?
+
+### Een kleurtje voor de cirkel
+
+Het voorbeeld heeft een gekleurde cirkel. Laten we eens een kleurtje toevoegen:
+
+{{< highlight javascript "linenos=table,hl_lines=7,linenostart=1" >}}
+function setup() {
+    createCanvas(710, 400);
+    background(102);
+}
+
+function draw() {
+    fill(color(255, 128, 0));
+    ellipse(mouseX, mouseY, 60, 60);
+}
+{{< /highlight >}}
+
+**Opdracht 9**: voeg regel 7 toe aan je code. Welke kleur heeft de cirkel?
+
+Het commando `fill()` vult het figuur dat erna wordt getekend met de kleur die wordt bepaald door het commando `color()`.
+Het commando `color()` heeft 3 parameters, een voor rood, een voor groen en een voor blauw. Alle drie de kleuren kunnen
+met een getal tussen 0 en 255 worden bepaald. 0 is geen kleur en 255 is maximaal kleur. `color(0, 0, 0)` komt daarmee
+overeen met zwart en `color(255, 0, 0)`  met helder rood.
+
+**Opdracht 10**: speel met de kleur van de cirkel door met de getallen 255, 128 en 0 op regel 7 te variëren.
+
+### De cirkel grootte afhankelijk van de snelheid
+
+Als je de snelheid van de muis berekent, kun je die gebruiken om de grootte van de cirkel ermee aan te passen:
+
+{{< highlight javascript "linenos=table,hl_lines=7 9,linenostart=1" >}}
+function setup() {
+    createCanvas(710, 400);
+    background(102);
+}
+
+function draw() {
+    let snelheid = abs(mouseX - pmouseX) + abs(mouseY - pmouseY)
+    fill(color(255, 128, 0));
+    ellipse(mouseX, mouseY, snelheid, snelheid);
+}
+{{< /highlight >}}
+
+**Opdracht 11**: voeg regel 7 toe en pas regel 9 aan. Wordt de cirkel groter en kleiner?
+
+Op regel 7 wordt de snelheid van de muis berekend. Wil je daar meer over weten, lees dan door in onderstaande grijze
+vak.
+
+{{< verdieping >}}
+#### Hoe bereken je de snelheid van de muis?
+
+Op het moment dat je je muis beweegt, dan beweegt het horizontaal, vertikaal of in beide richtingen als je je muis 
+schuin beweegt. Als je je muis langzaam beweegt, dan verschuift het een kleiner stukje per seconde dan als je het 
+sneller beweegt. 
+
+De verschuiving die je doet, kun je berekenen door het verschil te bepalen tussen de vorige positie en de huidige. In
+p5.js geven `pmouseX` en `pmouseY` de vorige horizontale en vertikale positie en `mouseX` en `mouseY` de huidige.
+
+De horizontale en vertikale verschuiving kun je als volgt tekenen:
+
+![vector](imgs/vector.png)
+
+Een schuine beweging, zoals getekend in het plaatje, is het resultaat van een horizontale en vertikale verschuiving. 
+De lengte van de schuine pijl is dan een maat voor de snelheid. Hoe langer de pijl, hoe groter de verschuiving en dus
+hoe groter de snelheid.
+
+De code bevat een berekening voor de maat van de snelheid (niet 100% correct, maar voldoende voor dit doel). Het telt
+de horizontale verschuiving (`abs(mouseX - pmouseX`) op bij de vertikale verschuiving (`abs(mouseY - pmouseY`)).
+{{< /verdieping >}}
+
+### De kleur afhankelijk van de snelheid
+
+
+{{< highlight javascript "linenos=table,hl_lines=8,linenostart=1" >}}
+function setup() {
+    createCanvas(710, 400);
+    background(102);
+}
+
+function draw() {
+    let snelheid = abs(mouseX - pmouseX) + abs(mouseY - pmouseY)
+    fill(color(255 - snelheid, snelheid, 128 + snelheid))
+    ellipse(mouseX, mouseY, snelheid, snelheid);
+}
+{{< /highlight >}}
+
 
 
 {{< licentie rel="http://creativecommons.org/licenses/by-nc-sa/4.0/">}}
