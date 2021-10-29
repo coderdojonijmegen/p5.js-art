@@ -60,15 +60,15 @@ function draw() {
 
 ### Editor
 
-p5.js is een Javascript bibliotheek. Deze kun je in elke editor gebruiken. Door een webserver te gebruiken, kun je het
-resultaat bekijken in een webbrowser. Het is echter makkelijker om een editor in de browser te gebruiken. Ga
-daarvoor naar <a href="p5.js-widget/p5-widget.html" target="_blank">deze editor</a>.
+p5.js is een Javascript bibliotheek. Deze kun je in elke webpagina integreren. Je kunt "sketches" schrijven in een 
+editor op je PC en het resultaat dan bekijken in een webbrowser. Het is echter makkelijker om een editor in de browser
+zelf te gebruiken. Ga daarvoor naar <a href="p5.js-widget/p5-widget.html" target="_blank">deze editor</a>.
 
 De volgende instructies en voorbeelden gaan ervan uit dat je deze editor gebruikt.
 
 ## De basis
 
-p5.js scripts hebben de volgende basis:
+p5.js sketches hebben de volgende basis:
 
 {{< highlight javascript "linenos=table,hl_lines=1-2 4-5,linenostart=1" >}}
 function setup() {
@@ -258,8 +258,10 @@ de horizontale verschuiving (`abs(mouseX - pmouseX`) op bij de vertikale verschu
 
 ### De kleur afhankelijk van de snelheid
 
+Naast de grootte van de cirkel is ook de kleur in het voorbeeld afhankelijk van de snelheid van de muis.
+We hebben de snelheid al berekend, nu gaat we die gebruiken bij het inkleuren van de cirkel:
 
-{{< highlight javascript "linenos=table,hl_lines=8,linenostart=1" >}}
+{{< highlight javascript "linenos=table,hl_lines=8-9,linenostart=1" >}}
 function setup() {
     createCanvas(710, 400);
     background(102);
@@ -267,11 +269,40 @@ function setup() {
 
 function draw() {
     let snelheid = abs(mouseX - pmouseX) + abs(mouseY - pmouseY)
-    fill(color(255 - snelheid, snelheid, 128 + snelheid))
+    let kleur = color(255 - snelheid, snelheid, 128 + snelheid)
+    fill(kleur)
     ellipse(mouseX, mouseY, snelheid, snelheid);
 }
 {{< /highlight >}}
 
+Met het commando `color` op regel 8 kunnen we een kleur maken. Het commando heeft 3 parameters. Het eerste bepaald de
+hoeveelheid rood (R), het tweede de hoeveelheid groen (G) en het derde en laatste de hoeveelheid blauw (B). Deze RGB
+waarde zorgt samen een mengsel van de drie kleuren. Daarbij zorgt `color(255, 255, 255)` voor wit (alle kleuren maximaal)
+en `color(0, 0, 0)` voor zwart (alle kleuren uit).
 
+In het voorbeeld wordt voor rood de snelheid van 255 afgetrokken. Dus, hoe sneller de muis beweegt, hoe minder rood er
+in de kleur zit. Bij de middelste kleur, groen, is hoeveelheid direct afhankelijk van de snelheid. Hoe sneller, hoe meer
+groen er in de kleur zit. Tenslotte zit er bij blauw een minimum van 128 in de kleur en neemt de hoeveelheid blauw toe
+als de snelheid van de muis toeneemt.
+
+Tenslotte wordt de cirkel ingekleurd met het commando `fill(kleur)`.
+
+**Opdracht 12**: wissel de berekening per kleur eens met een andere kleur. Dus bijvoorbeeld `255 - snelheid` voor
+    groen in plaats van voor rood. Welke kleuren krijg je?
+
+## Tot slot
+
+De instructie geeft je slechts een introductie van wat er mogelijk is met de p5.js bibliotheek. Naast tekenen kun je
+ook met geluid werken of foto's en filmpjes.
+
+Zie https://p5js.org/examples/ voor een overzicht van voorbeelden. 
+
+Een aantal voorbeelden die we zelf leuk vinden:
+
+ * https://p5js.org/examples/math-parametric-equations.html
+ * https://p5js.org/examples/math-graphing-2d-equations.html
+ * https://p5js.org/examples/math-distance-2d.html
+ * https://p5js.org/examples/sound-playback-rate.html (zet je luidsprekers aan!)
+ * https://p5js.org/examples/sound-oscillator-frequency.html (zet je luidsprekers aan!)
 
 {{< licentie rel="http://creativecommons.org/licenses/by-nc-sa/4.0/">}}
