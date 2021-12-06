@@ -295,7 +295,7 @@ We hebben gezien dat we hele mooie kunst kunnen maken. Ook hebben we programma's
 Nu hebben we alle ingrediënten om ook games te gaan bouwen!
 
 **Opdracht 13**
-In de volgende instructies ga je een spel maken waar je op doelwitten moet klikken. De doelwitten verdwijnen langzaam, en als je te langzaam bent verlies je. 
+In de volgende instructies ga je een spel maken waar je op doelwitten moet klikken. De doelwitten verdwijnen langzaam, en als je te langzaam bent verlies je. Het doel is om zoveel mogelijk doelwitten aan te klikken voordat je verliest!
 
 **Stap 1**
 We maken een canvas van 400 bij 400 pixels.
