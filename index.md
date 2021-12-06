@@ -16,11 +16,9 @@ Kunst maken in de browser.
 
 ## Introductie
 
-Naast kunst met [Scratch](/instructies/scratch-art/) en [Python](/instructies/python-art/), kun je ook kunst 
-programmeren met [Processing](https://processing.org/).
+Naast kunst met [Scratch](/instructies/scratch-art/) en [Python](/instructies/python-art/), kan je ook kunst programmeren met [Processing](https://processing.org/).
 
-Er is ook een Processing variant voor in de browser. Deze heet [p5.js](https://p5js.org/). We gaan er in deze instructie
-mee aan de slag. Eerst een voorbeeld van wat je ermee kunt doen:
+Er is een Processing variant voor in de browser. Deze heet [p5.js](https://p5js.org/). We gaan er in deze instructie mee aan de slag. Eerst een voorbeeld van wat je ermee kunt doen:
 
 <div id="demo"></div>
 
@@ -60,8 +58,8 @@ function draw() {
 
 ### Editor
 
-p5.js is een Javascript bibliotheek. Deze kun je in elke webpagina integreren. Je kunt "sketches" schrijven in een 
-editor op je PC en het resultaat dan bekijken in een webbrowser. Het is echter makkelijker om een editor in de browser
+p5.js is een Javascript bibliotheek. Deze kun je in elke webpagina integreren. 
+Je kunt "sketches" schrijven in een editor op je PC en het resultaat dan bekijken in een webbrowser. Het is echter makkelijker om een editor in de browser
 zelf te gebruiken. Ga daarvoor naar <a href="p5.js-widget/p5-widget.html" target="_blank">deze editor</a>.
 
 De volgende instructies en voorbeelden gaan ervan uit dat je deze editor gebruikt.
@@ -297,8 +295,12 @@ Nu hebben we alle ingrediënten om ook games te gaan bouwen!
 **Opdracht 13**
 In de volgende instructies ga je een spel maken waar je op doelwitten moet klikken. De doelwitten verdwijnen langzaam, en als je te langzaam bent verlies je. Het doel is om zoveel mogelijk doelwitten aan te klikken voordat je verliest!
 
+<!---
+Een p5.js voorbeeld waar ze het spel kunnen spelen/testen zou hier misschien handig zijn.
+-->
+
 **Stap 1**
-We maken een canvas van 400 bij 400 pixels.
+We beginnen met het maken van een canvas van 400 bij 400 pixels.
 {{< highlight javascript "linenos=table,hl_lines=2 6,linenostart=1" >}}
 function setup() {
     createCanvas(400, 400);
@@ -310,7 +312,11 @@ function draw() {
 {{< /highlight >}}
 
 **Stap 2**
-We moeten bijhouden wat er in ons spel gebeurt, zo willen we weten hoeveel levens de speler nog heeft. Hoe snel de doelwitten krimpen en welke doelwitten we allemaal hebben. 
+Om het spel goed te laten verlopen, moeten we verschillende gegevens bijhouden. 
+Zo willen we bijvoorbeeld weten hoeveel levens de speler nog heeft, 
+zodat we later kunnen bepalen of het spel over is.
+Daarnaast houden we bij hoe snel de doelwitten krimpen en welke doelwitten we allemaal hebben. 
+
 {{< highlight javascript "linenos=table,hl_lines=0-4,linenostart=1" >}}
 
 let doelwitten = []
@@ -327,7 +333,9 @@ function draw() {
 {{< /highlight >}}
 
 **Stap 3**
-Het is handig als de speler weet hoeveel levens hij nog heeft. Laten we dat toevoegen. Zoals je kan zien wordt de tekst getekend 20 pixels van links, en 20 pixels vanaf boven. Probeer dit zelf maar te veranderen. 
+Het is handig als de speler weet hoeveel levens hij nog heeft. Laten we dat toevoegen. 
+De tekst wordt 20 pixels van links, en 20 pixels vanaf boven getekend. 
+Probeer de tekst zelf eens te verplaatsen naar een andere hoek.
 {{< highlight javascript "linenos=table,hl_lines=11,linenostart=1" >}}
 
 let doelwitten = []
@@ -345,9 +353,14 @@ function draw() {
 {{< /highlight >}}
 
 **Stap 4**
-Laten we wat doelwitten te voorschijn toveren. Onze doelwitten worden cirkels. We zullen dus de ellipse functie gebruiken. 
+Laten we wat doelwitten te voorschijn toveren. 
+Onze doelwitten worden cirkels. 
+Om cirkels te tekenen, kunnen we de ellipse functie gebruiken. 
 
-We hebben eerder al een lijst met doelwitten gemaakt (de eerste regel). We gaan nu door elk doelwit heen en tekenen die op het scherm. Dit doet wij met een for loop:
+We hebben eerder al een lijst met doelwitten gemaakt: 
+hier zorgt de eerste regel voor. 
+We gaan nu elk doelwit in de lijst met doelwitten af en tekenen ze op het scherm. 
+Dit doen wij met een for-loop:
 
 {{< highlight javascript "linenos=table,hl_lines=11,linenostart=1" >}}
 for (var i = doelwitten.length-1; i >= 0; i--) {
@@ -358,7 +371,8 @@ for (var i = doelwitten.length-1; i >= 0; i--) {
 }
 {{< /highlight >}}
 
-Je code zal er dan zo uit moeten zien als volgt. Dit is een lastig stuk dus als je hier vragen over hebt, stel ze vooral!
+Je code zal er (ongeveer) uit zien als volgt. 
+Dit is een lastig onderdeel van de opdracht, dus als je hier vragen over hebt, stel deze dan vooral!
 
 {{< highlight javascript "linenos=table,hl_lines=13-18,linenostart=1" >}}
 
@@ -384,7 +398,9 @@ function draw() {
 {{< /highlight >}}
 
 **Stap 5**
-je zult zien dat er nog niks getekend wordt. Dit komt omdat we nog geen doelwitten hebben toegevoegd aan onze lijst. Dit doen we als volgt
+Je zult zien dat er nog niks getekend wordt. 
+Dat komt omdat we nog geen doelwitten hebben toegevoegd aan onze lijst. 
+We kunnen de doelwitten op onderstaande manier toevoegen:
 
 {{< highlight javascript "linenos=table,hl_lines=10-14,linenostart=1" >}}
 
@@ -417,7 +433,8 @@ function draw() {
 {{< /highlight >}}
 
 **Stap 6**
-Cool! Maar er gebeurt nog niks. We voegen een regel toe zodat de doelwitten langzaam gaan krimpen. 
+Cool! Maar er gebeurt nog steeds niks.
+We voegen een regel toe zodat de doelwitten langzaam krimpen. 
 
 {{< highlight javascript "linenos=table,hl_lines=12,linenostart=16" >}}
 function draw() {
@@ -437,9 +454,15 @@ function draw() {
 {{< /highlight >}}
 
 **Stap 7**
-Als je het programma nu draait en lang genoeg wacht, zullen de cirkels verdwijnen. En daarna weer terugkomen!. Dit gebeurt om dat de groote van cirkel negatief wordt na een tijdje. De computer interpreteert dit echter als een positief getal. We moeten dus het doelwit weggooien als hij te klein is. 
+Als je het programma nu draait en lang genoeg wacht, dan zullen de cirkels verdwijnen. 
+Maar wacht eens: ze komen daarna weer terug?!
 
-Dan doen we met deze code:
+Dit gebeurt omdat de grootte van de cirkels negatief wordt na een tijdje.
+De computer interpreteert dit echter als een positief getal. 
+Omdat dit niet de bedoeling van het spel is, 
+moeten we een doelwit weggooien als het te klein is om nog verder te kunnen krimpen.
+
+Dan doen we met onderstaande code:
 
 {{< highlight javascript "linenos=table,hl_lines=14-18,linenostart=16" >}}
 function draw() {
@@ -465,7 +488,11 @@ function draw() {
 {{< /highlight >}}
 
 **Stap 8**
-De volgende stap is programmeren dat je op doelwitten kan klikken. Dat doen we als volgt. De functie mouseClicked() wordt aangeroepen wanneer je klikt. Plaats deze functie helemaal onderaan het bestand. Probeer elke regel te begrijpen!
+In deze stap programmeren we dat we op doelwitten kunnen klikken, om deze te verwijderen.
+Dat doen we als volgt. 
+De functie mouseClicked() activeert wanneer je klikt. 
+Plaats deze functie helemaal onderaan in het bestand. 
+Probeer elke regel te begrijpen en vraag om hulp als er iets onduidelijk is!
 
 {{< highlight javascript "linenos=table,linenostart=16" >}}
 function mouseClicked() {
@@ -485,7 +512,9 @@ function mouseClicked() {
 {{< /highlight >}}
 
 **Stap 9**
-Wat nu? De speler kan nog niet verliezen. We voegen toe dat de speler een leven verliest als een doelwit verdwijnt waar hij niet op klikt.
+Wat nu? 
+De speler kan nog niet verliezen. 
+We voegen toe dat de speler een leven verliest als een doelwit verdwijnt waar hij niet op klikt.
 
 {{< highlight javascript "linenos=table,hl_lines=18,linenostart=16" >}}
 function draw() {
@@ -511,7 +540,7 @@ function draw() {
 }
 {{< /highlight >}}
 **Stap 10**
-Als laatste: we laten de speler weten wanneer hij verloren heeft met de volgende code:
+Als laatste: we laten de speler weten wanneer hij verloren heeft, via de volgende code:
 
 {{< highlight javascript "linenos=table,hl_lines=5-10 29-31,linenostart=16" >}}
 function draw() {
@@ -549,16 +578,18 @@ function draw() {
 {{< /highlight >}}
 
 **Opdracht 14**
-We hebben zojuist een spel gemaakt. Kan jij het beter maken?
+We hebben zojuist een spel gemaakt. Kan jij het spel verbeteren?
 Probeer de volgende ideeën toe te voegen:
-- Geef de doelwitten mooie kleuren. Kan jij de kleur mee laten veranderen met de grote?
-- Voeg tekst toe die jouw score laat zien. Laat aan andere zien wat jouw record is. 
-- Vind je het spel te makkelijk of moeilijk? Pas de hoeveelheid doelwitten of krimpsnelheid aan! 
+- Geef de doelwitten mooie kleuren. 
+  Kan jij de kleur mee laten veranderen met de grootte van de doelwitten?
+- Voeg tekst toe die de huidige score laat zien. 
+  Zo kan je aan andere Ninja's laten zien wat je record is. 
+- Vind je het spel te makkelijk of te moeilijk? 
+  Pas de hoeveelheid doelwitten of de krimpsnelheid aan! 
 
 ## Tot slot
 
-De instructie geeft je slechts een introductie van wat er mogelijk is met de p5.js bibliotheek. Naast tekenen kun je
-ook met geluid werken of foto's en filmpjes.
+De instructie geeft je slechts een introductie van wat er mogelijk is met de p5.js bibliotheek. Naast tekenen kun je ook met geluid werken, of met foto's en filmpjes.
 
 Zie https://p5js.org/examples/ voor een overzicht van voorbeelden. 
 
