@@ -372,7 +372,7 @@ for (var i = doelwitten.length-1; i >= 0; i--) {
 {{< /highlight >}}
 
 Je code zal er (ongeveer) uit zien als volgt. 
-Dit is een lastig onderdeel van de opdracht, dus als je hier vragen over hebt, stel ze dan vooral!
+Dit is een lastig onderdeel van de opdracht, dus als je hier vragen over hebt, stel deze dan vooral!
 
 {{< highlight javascript "linenos=table,hl_lines=13-18,linenostart=1" >}}
 
@@ -454,13 +454,13 @@ function draw() {
 {{< /highlight >}}
 
 **Stap 7**
-Als je het programma nu draait en lang genoeg wacht, zullen de cirkels verdwijnen. 
+Als je het programma nu draait en lang genoeg wacht, dan zullen de cirkels verdwijnen. 
 Maar wacht eens: ze komen daarna weer terug?!
 
-Dit gebeurt omdat de grootte van cirkel negatief wordt na een tijdje.
+Dit gebeurt omdat de grootte van de cirkels negatief wordt na een tijdje.
 De computer interpreteert dit echter als een positief getal. 
 Omdat dit niet de bedoeling van het spel is, 
-moeten we een doelwit weggooien als het te klein is om nog verder te krimpen.
+moeten we een doelwit weggooien als het te klein is om nog verder te kunnen krimpen.
 
 Dan doen we met onderstaande code:
 
@@ -580,11 +580,12 @@ function draw() {
 **Opdracht 14**
 We hebben zojuist een spel gemaakt. Kan jij het spel verbeteren?
 Probeer de volgende ideeën toe te voegen:
-- Geef de doelwitten mooie kleuren. Kan jij de kleur mee laten veranderen met de grootte?
+- Geef de doelwitten mooie kleuren. 
+  Kan jij de kleur mee laten veranderen met de grootte van de doelwitten?
 - Voeg tekst toe die de huidige score laat zien. 
   Zo kan je aan andere Ninja's laten zien wat je record is. 
 - Vind je het spel te makkelijk of te moeilijk? 
-  Pas de hoeveelheid doelwitten of krimpsnelheid aan! 
+  Pas de hoeveelheid doelwitten of de krimpsnelheid aan! 
 
 ## Tot slot
 
