@@ -290,14 +290,13 @@ Tenslotte wordt de cirkel ingekleurd met het commando `fill(kleur)`.
 **Opdracht 12**: wissel de berekening per kleur eens met een andere kleur. Dus bijvoorbeeld `255 - snelheid` voor
     groen in plaats van voor rood. Welke kleuren krijg je?
 
-## Games met P5.js
+## Game met P5.js
 We hebben gezien dat we hele mooie kunst kunnen maken. Ook hebben we programma's gemaakt waar we zelf iets kunnen besturen, bijvoorbeeld met de muis. 
 Nu hebben we alle ingrediënten om ook games te gaan bouwen!
 
-**Opdracht 13**
 In de volgende instructies ga je een spel maken waar je op doelwitten moet klikken. De doelwitten verdwijnen langzaam, en als je te langzaam bent verlies je. Het doel is om zoveel mogelijk doelwitten aan te klikken voordat je verliest!
 
-**Stap 1**
+**Opdracht 13**
 We maken een canvas van 400 bij 400 pixels.
 {{< highlight javascript "linenos=table,hl_lines=2 6,linenostart=1" >}}
 function setup() {
@@ -309,7 +308,7 @@ function draw() {
 }
 {{< /highlight >}}
 
-**Stap 2**
+**Opdracht 14**
 We moeten bijhouden wat er in ons spel gebeurt, zo willen we weten hoeveel levens de speler nog heeft. Hoe snel de doelwitten krimpen en welke doelwitten we allemaal hebben. 
 {{< highlight javascript "linenos=table,hl_lines=0-4,linenostart=1" >}}
 
@@ -326,7 +325,7 @@ function draw() {
 }
 {{< /highlight >}}
 
-**Stap 3**
+**Opdracht 15**
 Het is handig als de speler weet hoeveel levens hij nog heeft. Laten we dat toevoegen. Zoals je kan zien wordt de tekst getekend 20 pixels van links, en 20 pixels vanaf boven. Probeer dit zelf maar te veranderen. 
 {{< highlight javascript "linenos=table,hl_lines=11,linenostart=1" >}}
 
@@ -344,7 +343,7 @@ function draw() {
 }
 {{< /highlight >}}
 
-**Stap 4**
+**Opdracht 16**
 Laten we wat doelwitten te voorschijn toveren. Onze doelwitten worden cirkels. We zullen dus de ellipse functie gebruiken. 
 
 We hebben eerder al een lijst met doelwitten gemaakt (de eerste regel). We gaan nu door elk doelwit heen en tekenen die op het scherm. Dit doet wij met een for loop:
@@ -383,7 +382,7 @@ function draw() {
 }
 {{< /highlight >}}
 
-**Stap 5**
+**Opdracht 17**
 je zult zien dat er nog niks getekend wordt. Dit komt omdat we nog geen doelwitten hebben toegevoegd aan onze lijst. Dit doen we als volgt
 
 {{< highlight javascript "linenos=table,hl_lines=10-14,linenostart=1" >}}
@@ -416,7 +415,7 @@ function draw() {
 }
 {{< /highlight >}}
 
-**Stap 6**
+**Opdracht 18**
 Cool! Maar er gebeurt nog niks. We voegen een regel toe zodat de doelwitten langzaam gaan krimpen. 
 
 {{< highlight javascript "linenos=table,hl_lines=12,linenostart=16" >}}
@@ -436,7 +435,7 @@ function draw() {
 }
 {{< /highlight >}}
 
-**Stap 7**
+**Opdracht 19**
 Als je het programma nu draait en lang genoeg wacht, zullen de cirkels verdwijnen. En daarna weer terugkomen!. Dit gebeurt om dat de groote van cirkel negatief wordt na een tijdje. De computer interpreteert dit echter als een positief getal. We moeten dus het doelwit weggooien als hij te klein is. 
 
 Dan doen we met deze code:
@@ -464,7 +463,7 @@ function draw() {
 }
 {{< /highlight >}}
 
-**Stap 8**
+**Opdracht 20**
 De volgende stap is programmeren dat je op doelwitten kan klikken. Dat doen we als volgt. De functie mouseClicked() wordt aangeroepen wanneer je klikt. Plaats deze functie helemaal onderaan het bestand. Probeer elke regel te begrijpen!
 
 {{< highlight javascript "linenos=table,linenostart=16" >}}
@@ -484,7 +483,7 @@ function mouseClicked() {
 }
 {{< /highlight >}}
 
-**Stap 9**
+**Opdracht 21**
 Wat nu? De speler kan nog niet verliezen. We voegen toe dat de speler een leven verliest als een doelwit verdwijnt waar hij niet op klikt.
 
 {{< highlight javascript "linenos=table,hl_lines=18,linenostart=16" >}}
@@ -510,7 +509,7 @@ function draw() {
     }  
 }
 {{< /highlight >}}
-**Stap 10**
+**Opdracht 22**
 Als laatste: we laten de speler weten wanneer hij verloren heeft met de volgende code:
 
 {{< highlight javascript "linenos=table,hl_lines=5-10 29-31,linenostart=16" >}}
@@ -548,7 +547,63 @@ function draw() {
 }
 {{< /highlight >}}
 
-**Opdracht 14**
+**Afronden**
+Als het goed is heb je nu een spel gemaakt. Werkt het niet? Je kan jouw code vergelijken met de uitwerking hieronder. 
+
+{{< highlight javascript "linenos=table,linenostart=1" >}}
+
+let doelwitten = []
+let levens = 5;
+let spelerIsDood = false;
+let krimpSnelheid = 0.1;
+
+function setup() {
+  createCanvas(400, 400);
+
+ //voeg begin doelwitten toe
+  doelwitten.push({x: random(300), y: random(300), r: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
+  doelwitten.push({x: random(300), y: random(300), r: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
+  doelwitten.push({x: random(300), y: random(300), r: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
+  doelwitten.push({x: random(300), y: random(300), r: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
+  doelwitten.push({x: random(300), y: random(300), r: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
+}
+
+function draw() {
+    background(255);
+    text("Levens: "+str(levens), 20, 20, 100, 100);
+
+    if(spelerIsDood) {
+        textSize(52);
+        text("Dood!", 130, 170, 100, 100);
+        textSize(32);
+        return; 
+    }
+
+    for (var i = doelwitten.length-1; i >= 0; i--) {
+        t = doelwitten[i];
+        
+        //Teken alle doelwitten
+        ellipse(t.x, t.y, t.r, t.r);    
+
+        //Krimp alle doelwitten
+        t.r -= krimpSnelheid; 
+
+        //verwijder te kleine doelwitten
+        if(t.r < 0) { //Is de grote kleiner dan 0? Dan verwijderen
+            doelwitten.splice(i, 1); //Haal het doelwit uit de lijst.
+            doelwitten.push({x: random(300), y: random(300), r: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
+            levens--;
+        }
+    }  
+
+    if(levens <= 0) {
+        spelerIsDood = true;
+    }
+}
+{{< /highlight >}}
+
+
+## Verbeter het spel
 We hebben zojuist een spel gemaakt. Kan jij het beter maken?
 Probeer de volgende ideeën toe te voegen:
 - Geef de doelwitten mooie kleuren. Kan jij de kleur mee laten veranderen met de grote?
