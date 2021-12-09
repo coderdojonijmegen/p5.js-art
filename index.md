@@ -100,7 +100,7 @@ function draw() {
 {{< /highlight >}}
 <div class="p5js_voorbeeld" id="voorbeeld1"></div>
 
-We zullen stap voor stap door de code heen lopen:
+We zullen Opdracht voor Opdracht door de code heen lopen:
 
  * op regel 2 in de `setup` functie wordt het tekenblad (canvas) gemaakt. Dit hoeft slechts 1 keer te gebeuren.
  * regels 6 tot en met 9 worden telkens herhaald:
@@ -130,7 +130,7 @@ verder met meer voorbeelden en uitleg.
 
 In dit hoofdstuk gaan we kunst maken met je muis. Beweeg je muis maar eens over het grijze vlak hieronder. 😉
 <div class="p5js_voorbeeld" id="voorbeeld2"></div>
-Stap voor stap gaan we dit nabouwen.
+Opdracht voor Opdracht gaan we dit nabouwen.
 
 ### Tekenvlak
 
@@ -150,7 +150,7 @@ function draw() {
 
 ### Een cirkel
 
-De volgende stap is een cirkel:
+De volgende Opdracht is een cirkel:
 
 {{< highlight javascript "linenos=table,hl_lines=7,linenostart=1" >}}
 function setup() {
@@ -292,14 +292,13 @@ Tenslotte wordt de cirkel ingekleurd met het commando `fill(kleur)`.
 We hebben gezien dat we hele mooie kunst kunnen maken. Ook hebben we programma's gemaakt waar we zelf iets kunnen besturen, bijvoorbeeld met de muis. 
 Nu hebben we alle ingrediënten om ook games te gaan bouwen!
 
-**Opdracht 13**
 In de volgende instructies ga je een spel maken waar je op doelwitten moet klikken. De doelwitten verdwijnen langzaam, en als je te langzaam bent verlies je. Het doel is om zoveel mogelijk doelwitten aan te klikken voordat je verliest!
 
 <!---
 Een p5.js voorbeeld waar ze het spel kunnen spelen/testen zou hier misschien handig zijn.
 -->
 
-**Stap 1**
+**Opdracht 13**
 We beginnen met het maken van een canvas van 400 bij 400 pixels.
 {{< highlight javascript "linenos=table,hl_lines=2 6,linenostart=1" >}}
 function setup() {
@@ -311,7 +310,7 @@ function draw() {
 }
 {{< /highlight >}}
 
-**Stap 2**
+**Opdracht 14**
 Om het spel goed te laten verlopen, moeten we verschillende gegevens bijhouden. 
 Zo willen we bijvoorbeeld weten hoeveel levens de speler nog heeft, 
 zodat we later kunnen bepalen of het spel over is.
@@ -332,7 +331,7 @@ function draw() {
 }
 {{< /highlight >}}
 
-**Stap 3**
+**Opdracht 15**
 Het is handig als de speler weet hoeveel levens hij nog heeft. Laten we dat toevoegen. 
 De tekst wordt 20 pixels van links, en 20 pixels vanaf boven getekend. 
 Probeer de tekst zelf eens te verplaatsen naar een andere hoek.
@@ -352,7 +351,7 @@ function draw() {
 }
 {{< /highlight >}}
 
-**Stap 4**
+**Opdracht 16**
 Laten we wat doelwitten te voorschijn toveren. 
 Onze doelwitten worden cirkels. 
 Om cirkels te tekenen, kunnen we de ellipse functie gebruiken. 
@@ -397,7 +396,7 @@ function draw() {
 }
 {{< /highlight >}}
 
-**Stap 5**
+**Opdracht 17**
 Je zult zien dat er nog niks getekend wordt. 
 Dat komt omdat we nog geen doelwitten hebben toegevoegd aan onze lijst. 
 We kunnen de doelwitten op onderstaande manier toevoegen:
@@ -432,7 +431,7 @@ function draw() {
 }
 {{< /highlight >}}
 
-**Stap 6**
+**Opdracht 18**
 Cool! Maar er gebeurt nog steeds niks.
 We voegen een regel toe zodat de doelwitten langzaam krimpen. 
 
@@ -453,7 +452,7 @@ function draw() {
 }
 {{< /highlight >}}
 
-**Stap 7**
+**Opdracht 19**
 Als je het programma nu draait en lang genoeg wacht, dan zullen de cirkels verdwijnen. 
 Maar wacht eens: ze komen daarna weer terug?!
 
@@ -487,8 +486,8 @@ function draw() {
 }
 {{< /highlight >}}
 
-**Stap 8**
-In deze stap programmeren we dat we op doelwitten kunnen klikken, om deze te verwijderen.
+**Opdracht 20**
+In deze Opdracht programmeren we dat we op doelwitten kunnen klikken, om deze te verwijderen.
 Dat doen we als volgt. 
 De functie mouseClicked() activeert wanneer je klikt. 
 Plaats deze functie helemaal onderaan in het bestand. 
@@ -511,7 +510,7 @@ function mouseClicked() {
 }
 {{< /highlight >}}
 
-**Stap 9**
+**Opdracht 21**
 Wat nu? 
 De speler kan nog niet verliezen. 
 We voegen toe dat de speler een leven verliest als een doelwit verdwijnt waar hij niet op klikt.
@@ -539,7 +538,7 @@ function draw() {
     }  
 }
 {{< /highlight >}}
-**Stap 10**
+**Opdracht 22**
 Als laatste: we laten de speler weten wanneer hij verloren heeft, via de volgende code:
 
 {{< highlight javascript "linenos=table,hl_lines=5-10 29-31,linenostart=16" >}}
@@ -577,7 +576,63 @@ function draw() {
 }
 {{< /highlight >}}
 
-**Opdracht 14**
+**Afronden**
+Als het goed is heb je nu een spel gemaakt. Werkt het niet? Je kan jouw code vergelijken met de uitwerking hieronder. 
+
+{{< highlight javascript "linenos=table,linenostart=1" >}}
+
+let doelwitten = []
+let levens = 5;
+let spelerIsDood = false;
+let krimpSnelheid = 0.1;
+
+function setup() {
+  createCanvas(400, 400);
+
+ //voeg begin doelwitten toe
+  doelwitten.push({x: random(300), y: random(300), r: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
+  doelwitten.push({x: random(300), y: random(300), r: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
+  doelwitten.push({x: random(300), y: random(300), r: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
+  doelwitten.push({x: random(300), y: random(300), r: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
+  doelwitten.push({x: random(300), y: random(300), r: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
+}
+
+function draw() {
+    background(255);
+    text("Levens: "+str(levens), 20, 20, 100, 100);
+
+    if(spelerIsDood) {
+        textSize(52);
+        text("Dood!", 130, 170, 100, 100);
+        textSize(32);
+        return; 
+    }
+
+    for (var i = doelwitten.length-1; i >= 0; i--) {
+        t = doelwitten[i];
+        
+        //Teken alle doelwitten
+        ellipse(t.x, t.y, t.r, t.r);    
+
+        //Krimp alle doelwitten
+        t.r -= krimpSnelheid; 
+
+        //verwijder te kleine doelwitten
+        if(t.r < 0) { //Is de grote kleiner dan 0? Dan verwijderen
+            doelwitten.splice(i, 1); //Haal het doelwit uit de lijst.
+            doelwitten.push({x: random(300), y: random(300), r: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
+            levens--;
+        }
+    }  
+
+    if(levens <= 0) {
+        spelerIsDood = true;
+    }
+}
+{{< /highlight >}}
+
+
+## Verbeter het spel
 We hebben zojuist een spel gemaakt. Kan jij het spel verbeteren?
 Probeer de volgende ideeën toe te voegen:
 - Geef de doelwitten mooie kleuren. 
