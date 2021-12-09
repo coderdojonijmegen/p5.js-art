@@ -100,7 +100,7 @@ function draw() {
 {{< /highlight >}}
 <div class="p5js_voorbeeld" id="voorbeeld1"></div>
 
-We zullen Opdracht voor Opdracht door de code heen lopen:
+We zullen stap voor stap door de code heen lopen:
 
  * op regel 2 in de `setup` functie wordt het tekenblad (canvas) gemaakt. Dit hoeft slechts 1 keer te gebeuren.
  * regels 6 tot en met 9 worden telkens herhaald:
@@ -130,7 +130,7 @@ verder met meer voorbeelden en uitleg.
 
 In dit hoofdstuk gaan we kunst maken met je muis. Beweeg je muis maar eens over het grijze vlak hieronder. 😉
 <div class="p5js_voorbeeld" id="voorbeeld2"></div>
-Opdracht voor Opdracht gaan we dit nabouwen.
+Stap voor stap gaan we dit nabouwen.
 
 ### Tekenvlak
 
@@ -150,7 +150,7 @@ function draw() {
 
 ### Een cirkel
 
-De volgende Opdracht is een cirkel:
+De volgende stap is een cirkel:
 
 {{< highlight javascript "linenos=table,hl_lines=7,linenostart=1" >}}
 function setup() {
@@ -487,7 +487,7 @@ function draw() {
 {{< /highlight >}}
 
 **Opdracht 20**
-In deze Opdracht programmeren we dat we op doelwitten kunnen klikken, om deze te verwijderen.
+In deze stap programmeren we dat we op doelwitten kunnen klikken, om deze te verwijderen.
 Dat doen we als volgt. 
 De functie mouseClicked() activeert wanneer je klikt. 
 Plaats deze functie helemaal onderaan in het bestand. 
