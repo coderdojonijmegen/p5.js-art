@@ -629,6 +629,21 @@ function draw() {
         spelerIsDood = true;
     }
 }
+	
+function mouseClicked() {
+  for (var i = doelwitten.length-1; i >= 0; i--) {
+    t = doelwitten[i];
+    
+    //Bereken de afstand tussen de muis en het doelwit
+	let afstand = dist(mouseX, mouseY, t.x, t.y);
+
+    if(afstand < t.r/2) { //Als de afstand kleiner is dan de halve radius van het doelwit is het raak
+      doelwitten.splice(i, 1); //Verwijder het doelwit dat geraakt is
+      doelwitten.push({x: random(300), y: random(300), r: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
+      return;
+    }
+  }
+}
 {{< /highlight >}}
 
 
