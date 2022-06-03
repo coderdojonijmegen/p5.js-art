@@ -366,7 +366,7 @@ for (var i = doelwitten.length-1; i >= 0; i--) {
         t = doelwitten[i];
         
         //Teken alle doelwitten
-        ellipse(t.x, t.y, t.r, t.r);  
+        ellipse(t.x, t.y, t.d, t.d);  
 }
 {{< /highlight >}}
 
@@ -391,7 +391,7 @@ function draw() {
         t = doelwitten[i];
         
         //Teken alle doelwitten
-        ellipse(t.x, t.y, t.r, t.r);    
+        ellipse(t.x, t.y, t.d, t.d);    
     }  
 }
 {{< /highlight >}}
@@ -412,11 +412,11 @@ function setup() {
   createCanvas(400, 400);
 
  //voeg begin doelwitten toe
-  doelwitten.push({x: random(300), y: random(300), r: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
-  doelwitten.push({x: random(300), y: random(300), r: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
-  doelwitten.push({x: random(300), y: random(300), r: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
-  doelwitten.push({x: random(300), y: random(300), r: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
-  doelwitten.push({x: random(300), y: random(300), r: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
+  doelwitten.push({x: random(300), y: random(300), d: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
+  doelwitten.push({x: random(300), y: random(300), d: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
+  doelwitten.push({x: random(300), y: random(300), d: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
+  doelwitten.push({x: random(300), y: random(300), d: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
+  doelwitten.push({x: random(300), y: random(300), d: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
 }
 function draw() {
     background(255);
@@ -426,7 +426,7 @@ function draw() {
         t = doelwitten[i];
         
         //Teken alle doelwitten
-        ellipse(t.x, t.y, t.r, t.r);    
+        ellipse(t.x, t.y, t.d, t.d);    
     }  
 }
 {{< /highlight >}}
@@ -444,10 +444,10 @@ function draw() {
         t = doelwitten[i];
         
         //Teken alle doelwitten
-        ellipse(t.x, t.y, t.r, t.r);    
+        ellipse(t.x, t.y, t.d, t.d);    
 
         //Krimp alle doelwitten
-        t.r -= krimpSnelheid; 
+        t.d -= krimpSnelheid; 
     }  
 }
 {{< /highlight >}}
@@ -472,15 +472,15 @@ function draw() {
         t = doelwitten[i];
         
         //Teken alle doelwitten
-        ellipse(t.x, t.y, t.r, t.r);    
+        ellipse(t.x, t.y, t.d, t.d);    
 
         //Krimp alle doelwitten
-        t.r -= krimpSnelheid; 
+        t.d -= krimpSnelheid; 
 
         //verwijder te kleine doelwitten
-        if(t.r < 0) { //Is de grote kleiner dan 0? Dan verwijderen
+        if(t.d < 0) { //Is de grootte kleiner dan 0? Dan verwijderen
             doelwitten.splice(i, 1); //Haal het doelwit uit de lijst.
-            doelwitten.push({x: random(300), y: random(300), r: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
+            doelwitten.push({x: random(300), y: random(300), d: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
         }
     }  
 }
@@ -501,9 +501,9 @@ function mouseClicked() {
     //Bereken de afstand tussen de muis en het doelwit
 	let afstand = dist(mouseX, mouseY, t.x, t.y);
 
-    if(afstand < t.r/2) { //Als de afstand kleiner is dan de halve radius van het doelwit is het raak
+    if(afstand < t.d/2) { //Als de afstand kleiner is dan de halve diameter (radius) van het doelwit is het raak
       doelwitten.splice(i, 1); //Verwijder het doelwit dat geraakt is
-      doelwitten.push({x: random(300), y: random(300), r: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
+      doelwitten.push({x: random(300), y: random(300), d: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
       return;
     }
   }
@@ -524,15 +524,15 @@ function draw() {
         t = doelwitten[i];
         
         //Teken alle doelwitten
-        ellipse(t.x, t.y, t.r, t.r);    
+        ellipse(t.x, t.y, t.d, t.d);    
 
         //Krimp alle doelwitten
-        t.r -= krimpSnelheid; 
+        t.d -= krimpSnelheid; 
 
         //verwijder te kleine doelwitten
-        if(t.r < 0) { //Is de grote kleiner dan 0? Dan verwijderen
+        if(t.d < 0) { //Is de grootte kleiner dan 0? Dan verwijderen
             doelwitten.splice(i, 1); //Haal het doelwit uit de lijst.
-            doelwitten.push({x: random(300), y: random(300), r: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
+            doelwitten.push({x: random(300), y: random(300), d: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
             levens--;
         }
     }  
@@ -557,15 +557,15 @@ function draw() {
         t = doelwitten[i];
         
         //Teken alle doelwitten
-        ellipse(t.x, t.y, t.r, t.r);    
+        ellipse(t.x, t.y, t.d, t.d);    
 
         //Krimp alle doelwitten
-        t.r -= krimpSnelheid; 
+        t.d -= krimpSnelheid; 
 
         //verwijder te kleine doelwitten
-        if(t.r < 0) { //Is de grote kleiner dan 0? Dan verwijderen
+        if(t.d < 0) { //Is de grootte kleiner dan 0? Dan verwijderen
             doelwitten.splice(i, 1); //Haal het doelwit uit de lijst.
-            doelwitten.push({x: random(300), y: random(300), r: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
+            doelwitten.push({x: random(300), y: random(300), d: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
             levens--;
         }
     }  
@@ -590,11 +590,11 @@ function setup() {
   createCanvas(400, 400);
 
  //voeg begin doelwitten toe
-  doelwitten.push({x: random(300), y: random(300), r: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
-  doelwitten.push({x: random(300), y: random(300), r: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
-  doelwitten.push({x: random(300), y: random(300), r: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
-  doelwitten.push({x: random(300), y: random(300), r: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
-  doelwitten.push({x: random(300), y: random(300), r: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
+  doelwitten.push({x: random(300), y: random(300), d: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
+  doelwitten.push({x: random(300), y: random(300), d: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
+  doelwitten.push({x: random(300), y: random(300), d: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
+  doelwitten.push({x: random(300), y: random(300), d: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
+  doelwitten.push({x: random(300), y: random(300), d: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
 }
 
 function draw() {
@@ -612,15 +612,15 @@ function draw() {
         t = doelwitten[i];
         
         //Teken alle doelwitten
-        ellipse(t.x, t.y, t.r, t.r);    
+        ellipse(t.x, t.y, t.d, t.d);    
 
         //Krimp alle doelwitten
-        t.r -= krimpSnelheid; 
+        t.d -= krimpSnelheid; 
 
         //verwijder te kleine doelwitten
-        if(t.r < 0) { //Is de grote kleiner dan 0? Dan verwijderen
+        if(t.d < 0) { //Is de grootte kleiner dan 0? Dan verwijderen
             doelwitten.splice(i, 1); //Haal het doelwit uit de lijst.
-            doelwitten.push({x: random(300), y: random(300), r: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
+            doelwitten.push({x: random(300), y: random(300), d: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
             levens--;
         }
     }  
@@ -637,9 +637,9 @@ function mouseClicked() {
     //Bereken de afstand tussen de muis en het doelwit
 	let afstand = dist(mouseX, mouseY, t.x, t.y);
 
-    if(afstand < t.r/2) { //Als de afstand kleiner is dan de halve radius van het doelwit is het raak
+    if(afstand < t.d/2) { //Als de afstand kleiner is dan de halve diameter (radius) van het doelwit is het raak
       doelwitten.splice(i, 1); //Verwijder het doelwit dat geraakt is
-      doelwitten.push({x: random(300), y: random(300), r: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
+      doelwitten.push({x: random(300), y: random(300), d: 50}) //Voeg een doelwit toe op een nieuwe willekeurige plek.
       return;
     }
   }
