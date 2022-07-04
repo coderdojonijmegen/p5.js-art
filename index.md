@@ -294,9 +294,9 @@ Nu hebben we alle ingrediënten om ook games te gaan bouwen!
 
 In de volgende instructies ga je een spel maken waar je op doelwitten moet klikken. De doelwitten verdwijnen langzaam, en als je te langzaam bent verlies je. Het doel is om zoveel mogelijk doelwitten aan te klikken voordat je verliest!
 
-<!---
-Een p5.js voorbeeld waar ze het spel kunnen spelen/testen zou hier misschien handig zijn.
--->
+Onderstaand een demo van de game: 
+
+<div class="p5js_game0" id="game0"></div>
 
 **Opdracht 13**
 We beginnen met het maken van een canvas van 400 bij 400 pixels.
