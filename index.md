@@ -68,11 +68,13 @@ De volgende instructies en voorbeelden gaan ervan uit dat je deze editor gebruik
 
 p5.js sketches hebben de volgende basis:
 
-{{< highlight javascript "linenos=table,hl_lines=1-2 4-5,linenostart=1" >}}
+{{< highlight javascript "linenos=table,hl_lines=1-3 5-7,linenostart=1" >}}
 function setup() {
+  createCanvas(100, 100);
 }
 
 function draw() {
+  background(255, 0, 200);
 }
 {{< /highlight >}}
 
@@ -120,7 +122,7 @@ We zullen stap voor stap door de code heen lopen:
 **Opdracht 4**: regel 8 zorgt ervoor dat het vierkant draait. Verander waarde 50 eens door 10. Wat gebeurt er? En bij
     een waarde van 100?  
 **Opdracht 5**: regel 9 tekent het vierkant. De eerste twee getallen -26 verschuiven het draaipunt van het vierkant
-    horizontaal en vertikaal. De twee laatste bepalen de hoogte en breedte. Vervang de getallen 52 eens door 75. Wat
+    horizontaal en verticaal. De twee laatste bepalen de hoogte en breedte. Vervang de getallen 52 eens door 75. Wat
     gebeurt er? En als je één van de twee 52 laat en de ander veranderd naar 75?
 
 Na het uitvoeren van deze eerste opdrachten begrijp je een beetje hoe het werkt. In de volgende hoofdstukken gaan we 
@@ -133,6 +135,8 @@ In dit hoofdstuk gaan we kunst maken met je muis. Beweeg je muis maar eens over 
 Stap voor stap gaan we dit nabouwen.
 
 ### Tekenvlak
+
+We openen nu een nieuw venster om opnieuw te beginnen. Ga daarvoor naar <a href="p5.js-widget/p5-widget.html" target="_blank">deze editor</a>.
 
 We beginnen met het vlak waarin we de cirkels gaan tekenen:
 
@@ -221,13 +225,13 @@ function setup() {
 }
 
 function draw() {
-    let snelheid = abs(mouseX - pmouseX) + abs(mouseY - pmouseY)
+    let snelheid = abs(mouseX - pmouseX) + abs(mouseY - pmouseY);
     fill(color(255, 128, 0));
     ellipse(mouseX, mouseY, snelheid, snelheid);
 }
 {{< /highlight >}}
 
-**Opdracht 11**: voeg regel 7 toe en pas regel 9 aan. Wordt de cirkel groter en kleiner?
+**Opdracht 11**: voeg regel 7 toe en pas regel 9 aan. Wordt de cirkel groter en kleiner als je je muis sneller en langzamer beweegt?
 
 Op regel 7 wordt de snelheid van de muis berekend. Wil je daar meer over weten, lees dan door in onderstaande grijze
 vak.
@@ -266,9 +270,9 @@ function setup() {
 }
 
 function draw() {
-    let snelheid = abs(mouseX - pmouseX) + abs(mouseY - pmouseY)
-    let kleur = color(255 - snelheid, snelheid, 128 + snelheid)
-    fill(kleur)
+    let snelheid = abs(mouseX - pmouseX) + abs(mouseY - pmouseY);
+    let kleur = color(255 - snelheid, snelheid, 128 + snelheid);
+    fill(kleur);
     ellipse(mouseX, mouseY, snelheid, snelheid);
 }
 {{< /highlight >}}
@@ -359,16 +363,7 @@ Om cirkels te tekenen, kunnen we de ellipse functie gebruiken.
 We hebben eerder al een lijst met doelwitten gemaakt: 
 hier zorgt de eerste regel voor. 
 We gaan nu elk doelwit in de lijst met doelwitten af en tekenen ze op het scherm. 
-Dit doen wij met een for-loop:
-
-{{< highlight javascript "linenos=table,hl_lines=11,linenostart=1" >}}
-for (var i = doelwitten.length-1; i >= 0; i--) {
-        t = doelwitten[i];
-        
-        //Teken alle doelwitten
-        ellipse(t.x, t.y, t.d, t.d);  
-}
-{{< /highlight >}}
+Dit doen wij met een for-loop.
 
 Je code zal er (ongeveer) uit zien als volgt. 
 Dit is een lastig onderdeel van de opdracht, dus als je hier vragen over hebt, stel deze dan vooral!
@@ -488,12 +483,12 @@ function draw() {
 
 **Opdracht 20**
 In deze stap programmeren we dat we op doelwitten kunnen klikken, om deze te verwijderen.
-Dat doen we als volgt. 
+Dat doen we als volgt: 
 De functie mouseClicked() activeert wanneer je klikt. 
 Plaats deze functie helemaal onderaan in het bestand. 
 Probeer elke regel te begrijpen en vraag om hulp als er iets onduidelijk is!
 
-{{< highlight javascript "linenos=table,linenostart=16" >}}
+{{< highlight javascript "linenos=table,linenostart=38" >}}
 function mouseClicked() {
   for (var i = doelwitten.length-1; i >= 0; i--) {
     t = doelwitten[i];
