@@ -4,7 +4,7 @@ date: 2021-10-22T20:53:27+02:00
 draft: false
 toc: true
 headercolor: "teal-background"
-taal: Javascript 
+onderwerp: Javascript 
 ---
 
 Kunst maken in de browser.
