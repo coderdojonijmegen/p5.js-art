@@ -136,7 +136,7 @@ Stap voor stap gaan we dit nabouwen.
 
 ### Tekenvlak
 
-We openen nu een nieuw venster om opnieuw te beginnen. Ga daarvoor naar <a href="p5.js-widget/p5-widget.html" target="_blank">deze editor</a>.
+We openen nu een nieuw venster om opnieuw te beginnen. Ga daarvoor naar <a href="https://editor.p5js.org/" target="_blank">deze editor</a>.
 
 We beginnen met het vlak waarin we de cirkels gaan tekenen:
 
