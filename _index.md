@@ -60,7 +60,7 @@ function draw() {
 
 p5.js is een Javascript bibliotheek. Deze kun je in elke webpagina integreren. 
 Je kunt "sketches" schrijven in een editor op je PC en het resultaat dan bekijken in een webbrowser. Het is echter makkelijker om een editor in de browser
-zelf te gebruiken. Ga daarvoor naar <a href="p5.js-widget/p5-widget.html" target="_blank">deze editor</a>.
+zelf te gebruiken. Ga daarvoor naar <a href="https://editor.p5js.org/" target="_blank">deze editor</a>.
 
 De volgende instructies en voorbeelden gaan ervan uit dat je deze editor gebruikt.
 
@@ -657,13 +657,5 @@ Probeer de volgende ideeën toe te voegen:
 De instructie geeft je slechts een introductie van wat er mogelijk is met de p5.js bibliotheek. Naast tekenen kun je ook met geluid werken, of met foto's en filmpjes.
 
 Zie https://p5js.org/examples/ voor een overzicht van voorbeelden. 
-
-Een aantal voorbeelden die we zelf leuk vinden:
-
- * https://p5js.org/examples/math-parametric-equations.html
- * https://p5js.org/examples/math-graphing-2d-equations.html
- * https://p5js.org/examples/math-distance-2d.html
- * https://p5js.org/examples/sound-playback-rate.html (zet je luidsprekers aan!)
- * https://p5js.org/examples/sound-oscillator-frequency.html (zet je luidsprekers aan!)
 
 {{< licentie rel="http://creativecommons.org/licenses/by-nc-sa/4.0/">}}
